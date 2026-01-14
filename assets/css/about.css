@@ -1,0 +1,80 @@
+
+/* 主題與版面（簡版） */
+:root{
+  --bg:#0f1320; --bg2:#121a2b; --text:#eaf6ff; --muted:#99a8bd;
+  --accent:#00d4ff; --border:rgba(255,255,255,.16);
+  --shadow:0 10px 28px rgba(0,0,0,.35);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  background:linear-gradient(135deg,var(--bg),var(--bg2));
+  color:var(--text);
+  font:500 15px/1.6 system-ui,'Microsoft JhengHei',sans-serif;
+}
+
+/* 內容容器與標題 */
+.content{min-height:100vh}
+.section{padding:48px 0}
+.container{width:min(1080px,92vw); margin:0 auto;}
+.title{margin:0 0 12px 0; font-size:clamp(22px,3vw,28px)}
+.small{color:var(--muted); font-size:13px}
+
+/* 區塊置中：讓每個 section 的內容水平置中 */
+.section-center{
+  display:flex;
+  justify-content:center;   /* 水平置中 section 內的 .container */
+  align-items:center;       /* 在少量內容時垂直置中，可視需求保留或移除 */
+  text-align:center;        /* 讓標題等文字置中 */
+}
+
+/* 響應式影片容器（置中、全寬、16:9） */
+.video-wrap{
+  position:relative;
+  width:min(1200px, 100vw);   /* 桌機不超過 1200px、手機可滿版 */
+  margin:0 auto;
+  aspect-ratio:16/9;
+  background:#000;
+  border-radius:12px;
+  overflow:hidden;
+  box-shadow:var(--shadow);
+}
+.video-wrap iframe{
+  position:absolute; inset:0;
+  width:100%; height:100%;
+  border:0;
+}
+
+/* 卡片與自動排版（桌機多欄、手機單欄） */
+.cards{
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));
+  gap:16px;
+  width:100%;
+}
+.card{
+  background:rgba(255,255,255,.06);
+  border:1px solid var(--border);
+  border-radius:12px;
+  padding:16px;
+  box-shadow:var(--shadow);
+}
+.card h3{margin-top:0}
+
+/* 回到頂部按鈕（可選） */
+.back-to-top{
+  position:fixed; right:12px; bottom:12px;
+  width:42px; height:42px;
+  display:grid; place-items:center;
+  border-radius:50%;
+  border:1px solid var(--border);
+  background:rgba(255,255,255,.08);
+  color:#fff; text-decoration:none;
+}
+.back-to-top:hover{ background:rgba(255,255,255,.16) }
+
+/* 小型裝置微調（可視覺需要調整） */
+@media (max-width:768px){
+  .title{font-size:clamp(20px,4vw,24px)}
+}

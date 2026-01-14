@@ -1,0 +1,115 @@
+<div class="contact-wrap">
+  <div class="contact-title"><span>Contact Us</span></div>
+  <form
+    id="contactForm"
+    action="https://formspree.io/f/mwpwlrvq"
+    method="POST"
+    novalidate
+  >
+    <input type="hidden" name="_replyto" value="" />
+    <input
+      type="text"
+      name="_hp"
+      aria-hidden="true"
+      tabindex="-1"
+      style="position: absolute; left: -9999px; width: 1px; height: 1px"
+    />
+    <div class="contact-grid">
+      <div class="field">
+        <label for="name">Name *</label
+        ><input
+          id="name"
+          name="name"
+          type="text"
+          placeholder="William"
+          autocomplete="name"
+          required
+        />
+      </div>
+      <div class="field">
+        <label for="email">Email *</label
+        ><input
+          id="email"
+          name="email"
+          type="email"
+          placeholder="you@example.com"
+          autocomplete="email"
+          required
+        />
+      </div>
+      <div class="field">
+        <label for="country">Country *</label>
+        <select
+          id="country"
+          name="country"
+          autocomplete="country-name"
+          required
+        >
+          <option value="">Select</option>
+          <option>Taiwan</option>
+          <option>Japan</option>
+          <option>South Korea</option>
+          <option>China</option>
+          <option>Singapore</option>
+          <option>Malaysia</option>
+          <option>Thailand</option>
+          <option>Vietnam</option>
+          <option>India</option>
+          <option>Indonesia</option>
+          <option>Philippines</option>
+          <option>United States</option>
+          <option>Canada</option>
+          <option>United Kingdom</option>
+          <option>Germany</option>
+          <option>France</option>
+          <option>Australia</option>
+          <option>New Zealand</option>
+          <option>Other</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="topic">Topic *</label>
+        <select id="topic" name="topic" required>
+          <option value="">Select</option>
+          <option>Consult</option>
+          <option>Cooperate</option>
+          <option>Other</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="phone">Phone</label
+        ><input
+          id="phone"
+          name="phone"
+          type="tel"
+          placeholder="+886 912-345-678"
+          autocomplete="tel"
+          inputmode="tel"
+        />
+      </div>
+      <div class="field">
+        <label for="crop">Crop *</label
+        ><input
+          id="crop"
+          name="crop"
+          type="text"
+          placeholder="Tea / Coffee / Garden"
+          required
+        />
+      </div>
+      <div class="field" style="grid-column: 1 / -1">
+        <label for="message">Message *</label
+        ><textarea
+          id="message"
+          name="message"
+          placeholder="Please briefly describe your needs or problem."
+          required
+        ></textarea>
+      </div>
+    </div>
+    <div class="contact-actions">
+      <button type="submit" class="btn" id="sendBtn">Send</button
+      ><button type="reset" class="btn">Clear</button>
+    </div>
+  </form>
+</div>

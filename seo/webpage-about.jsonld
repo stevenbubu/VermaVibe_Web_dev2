@@ -1,0 +1,13 @@
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "VermaVibe 智慧農業解決方案",
+  "url": "https://stevenbubu.github.io/VermaVibe_Web_dev/",
+  "inLanguage": "zh-Hant",
+  "description": "智慧農業技術、成功案例與合作洽詢。",
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "VermaVibe",
+    "url": "https://stevenbubu.github.io/VermaVibe_Web_dev/"
+  }
+}

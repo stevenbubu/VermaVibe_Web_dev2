@@ -1,0 +1,26 @@
+{
+  "name": "VermaVibe",
+  "short_name": "VermaVibe",
+  "start_url": "/VermaVibe_Web_dev/",
+  "scope": "/VermaVibe_Web_dev/",
+  "display": "standalone",
+  "theme_color": "#0f1320",
+  "background_color": "#0f1320",
+  "icons": [
+    {
+      "src": "/VermaVibe_Web_dev/assets/icons/logo.png",
+      "sizes": "64x64",
+      "type": "image/png"
+    },
+    {
+      "src": "/VermaVibe_Web_dev/assets/icons/logo.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/VermaVibe_Web_dev/assets/icons/logo.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

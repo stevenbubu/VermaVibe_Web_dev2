@@ -1,0 +1,11 @@
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "VermaVibe",
+  "url": "https://stevenbubu.github.io/VermaVibe_Web_dev/",
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": "https://stevenbubu.github.io/VermaVibe_Web_dev/search?q={search_term_string}",
+    "query-input": "required name=search_term_string"
+  }
+}

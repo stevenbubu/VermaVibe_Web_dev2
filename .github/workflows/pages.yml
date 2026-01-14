@@ -1,0 +1,40 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [main] # 如果你的主分支是 master，改為 master
+  workflow_dispatch: # 允許手動觸發（方便重新 build）
+
+# 僅允許單一併發；新的執行會自動取消舊的（避免 in-progress 衝突）
+concurrency:
+  group: pages-deploy
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+  pages: write # 必要：部署 Pages
+  id-token: write # 必要：OIDC
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      # 你的網站是純靜態，沒有 build 步驟，直接上傳 index.html 所在的資料夾。
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./ # 若網站改放在 docs/，改成 ./docs
+
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

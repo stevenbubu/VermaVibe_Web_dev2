@@ -1,0 +1,12 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "VermaVibe",
+  "url": "https://stevenbubu.github.io/VermaVibe_Web_dev/",
+  "logo": "https://stevenbubu.github.io/VermaVibe_Web_dev/assets/icons/logo.png",
+  "sameAs": [
+    "https://www.facebook.com/YOUR_PAGE",
+    "https://www.instagram.com/YOUR_PAGE",
+    "https://www.linkedin.com/company/YOUR_PAGE"
+  ]
+}

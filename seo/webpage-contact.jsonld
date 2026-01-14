@@ -1,0 +1,13 @@
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "VermaVibe 聯絡我們",
+  "url": "https://stevenbubu.github.io/VermaVibe_Web_dev/#/contact",
+  "inLanguage": "zh-Hant",
+  "description": "聯絡與洽詢。",
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "VermaVibe",
+    "url": "https://stevenbubu.github.io/VermaVibe_Web_dev/"
+  }
+}
