@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="zh-Hant">
   <head>
@@ -8,6 +9,20 @@
       name="description"
       content="在 Premium 精修版基礎上，微調右側影片位置向左靠一點；左側標題微向右、無品牌小字；霓虹背景、玻璃霧面卡片與微動效。"
     />
+    <meta name="theme-color" content="#0f172a" />
+    <!-- Open Graph -->
+    <meta property="og:title" content="VermaVibe · Quantum Farming" />
+    <meta
+      property="og:description"
+      content="以資料驅動的量子農法，創造更少投入的豐收成果。"
+    />
+    <meta property="og:type" content="website" />
+    <!-- 若有正式網址與 OG 圖可替換 -->
+    <meta property="og:url" content="https://example.com/" />
+    <meta property="og:image" content="https://example.com/og-image.jpg" />
+    <!-- Twitter Card (Optional) -->
+    <meta name="twitter:card" content="summary_large_image" />
+
     <style>
       :root {
         --bg-0: #0a0f1e;
@@ -28,8 +43,10 @@
         margin: 0;
         color: var(--text);
         font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI,
-          Noto Sans TC, PingFang TC, Microsoft JhengHei, sans-serif;
-        background: radial-gradient(
+          Noto Sans TC, PingFang TC, Microsoft JhengHei, Hiragino Sans CNS,
+          sans-serif;
+        background:
+          radial-gradient(
             1100px 560px at 14% -10%,
             rgba(88, 166, 255, 0.22),
             transparent 60%
@@ -39,92 +56,51 @@
             rgba(32, 192, 91, 0.22),
             transparent 62%
           ),
-          linear-gradient(
-            180deg,
-            var(--bg-0) 0%,
-            var(--bg-1) 40%,
-            var(--bg-0) 100%
-          );
+          linear-gradient(180deg, var(--bg-0) 0%, var(--bg-1) 40%, var(--bg-0) 100%);
         overflow-x: hidden;
       }
-      * {
-        box-sizing: border-box;
-      }
+      * { box-sizing: border-box; }
+
       .stars {
         position: fixed;
         inset: 0;
         z-index: -2;
         pointer-events: none;
-        background: radial-gradient(
-            1px 1px at 14% 28%,
-            rgba(255, 255, 255, 0.9),
-            transparent 2px
-          ),
-          radial-gradient(
-            1px 1px at 42% 82%,
-            rgba(255, 255, 255, 0.7),
-            transparent 2px
-          ),
-          radial-gradient(
-            1px 1px at 70% 30%,
-            rgba(255, 255, 255, 0.7),
-            transparent 2px
-          ),
-          radial-gradient(
-            1px 1px at 85% 58%,
-            rgba(255, 255, 255, 0.6),
-            transparent 2px
-          );
+        background:
+          radial-gradient(1px 1px at 14% 28%, rgba(255,255,255,0.9), transparent 2px),
+          radial-gradient(1px 1px at 42% 82%, rgba(255,255,255,0.7), transparent 2px),
+          radial-gradient(1px 1px at 70% 30%, rgba(255,255,255,0.7), transparent 2px),
+          radial-gradient(1px 1px at 85% 58%, rgba(255,255,255,0.6), transparent 2px);
         animation: twinkle 6s linear infinite;
       }
-      @keyframes twinkle {
-        50% {
-          opacity: 0.6;
-        }
-      }
+      @keyframes twinkle { 50% { opacity: 0.6; } }
+
       .orb {
         position: fixed;
         inset: -20vh -10vw auto auto;
         width: 60vw;
         height: 60vh;
         z-index: -3;
-        background: radial-gradient(
-            circle at 30% 30%,
-            rgba(88, 166, 255, 0.32),
-            transparent 50%
-          ),
-          radial-gradient(
-            circle at 70% 60%,
-            rgba(32, 192, 91, 0.24),
-            transparent 60%
-          ),
-          radial-gradient(
-            circle at 10% 80%,
-            rgba(245, 158, 11, 0.18),
-            transparent 55%
-          );
-        filter: blur(42px);
+        background:
+          radial-gradient(circle at 30% 30%, rgba(88,166,255,0.32), transparent 50%),
+          radial-gradient(circle at 70% 60%, rgba(32,192,91,0.24), transparent 60%),
+          radial-gradient(circle at 10% 80%, rgba(245,158,11,0.18), transparent 55%);
+        filter: blur(36px); /* 42px -> 36px: 稍降效能成本 */
         animation: drift 28s ease-in-out infinite alternate;
       }
       @keyframes drift {
-        0% {
-          transform: translate3d(0, 0, 0) scale(1);
-        }
-        100% {
-          transform: translate3d(-6vw, 4vh, 0) scale(1.06);
-        }
+        0% { transform: translate3d(0,0,0) scale(1); }
+        100% { transform: translate3d(-6vw, 4vh, 0) scale(1.06); }
       }
 
-      /* ★ 整體往右靠一點點：左側 padding 增加 */
+      /* ★ 整體略往右靠，並加 max-width 控制超寬螢幕 */
       .container {
         width: 100vw;
-        max-width: 100vw;
-        margin: 0;
+        max-width: 1200px;
+        margin-inline: auto;
         padding: 40px 24px 40px 52px;
       }
-      .section {
-        width: 100%;
-      }
+      .section { width: 100%; }
 
       .hero {
         display: grid;
@@ -136,7 +112,7 @@
         display: flex;
         flex-direction: column;
         gap: 14px;
-        padding-left: 24px;
+        padding-left: 24px; /* 左標題微向右 */
       }
 
       .title h1 {
@@ -155,10 +131,8 @@
       .title h1 .underline::after {
         content: "";
         position: absolute;
-        left: 0;
-        bottom: -10px;
-        width: 100%;
-        height: 8px;
+        left: 0; bottom: -10px;
+        width: 100%; height: 8px;
         border-radius: 8px;
         background: linear-gradient(90deg, var(--brand), var(--accent));
         box-shadow: 0 10px 22px rgba(88, 166, 255, 0.3);
@@ -169,25 +143,23 @@
         color: var(--accent);
         font-weight: 800;
       }
-
-      /* ★ slogan 放大 */
       .title p.slogan {
         margin: 10px 0 0;
         color: var(--muted);
         font-size: clamp(18px, 2.8vw, 22px);
-        max-width: 50ch;
+        max-width: 56ch; /* 稍放寬 */
       }
 
-      /* ★ 影片整體向左微靠（保留原本特性） */
+      /* ★ 影片區塊左微靠 */
       .video-wrap {
         width: 100%;
-        aspect-ratio: 16/9;
+        aspect-ratio: 16 / 9;
         background: #000;
         border: 1px solid var(--border);
         border-radius: 18px;
         overflow: hidden;
         box-shadow: var(--shadow);
-        margin-left: -16px;
+        transform: translateX(-8px); /* margin-left:-16px -> transform 更穩定 */
       }
       .video-wrap iframe {
         width: 100%;
@@ -245,69 +217,162 @@
         padding: 30px 24px;
       }
 
-      /* 減少動效偏好：直接顯示，避免看不到 */
+      /* 中型斷點：筆電更均衡 */
+      @media (max-width: 1200px) {
+        .hero { grid-template-columns: 1fr 1.1fr; }
+      }
+      @media (max-width: 900px) {
+        .hero { grid-template-columns: 1fr; }
+        .title { padding-left: 12px; }
+        .container { padding: 32px 20px 32px 44px; }
+        .video-wrap { transform: translateX(-6px); }
+      }
+
+      /* ===== Nature Power - Intro section (uses existing CSS variables) ===== */
+      .intro-section {
+        padding: 60px 24px;
+        background:
+          radial-gradient(circle at 20% 20%, color-mix(in oklab, var(--accent) 30%, transparent), transparent 60%),
+          radial-gradient(circle at 80% 80%, color-mix(in oklab, var(--brand) 30%, transparent), transparent 60%),
+          linear-gradient(180deg, var(--bg-0) 0%, var(--bg-1) 100%);
+        color: var(--text);
+      }
+
+      .intro-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        text-align: center;
+        padding-inline: 8px; /* 微調左右內距以對齊主容器 */
+      }
+
+      .intro-title {
+        font-size: clamp(28px, 5vw, 48px);
+        font-weight: 900;
+        margin: 0 0 16px;
+        position: relative;
+        display: inline-block;
+        letter-spacing: 0.2px;
+      }
+      .intro-title::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: -8px;
+        width: 100%;
+        height: 6px;
+        border-radius: 6px;
+        background: linear-gradient(90deg, var(--brand), var(--accent));
+        box-shadow: 0 6px 16px rgba(88, 166, 255, 0.3);
+      }
+
+      .intro-subtitle {
+        font-size: clamp(16px, 2.4vw, 20px);
+        color: var(--muted);
+        max-width: 70ch;
+        margin: 0 auto 40px;
+        line-height: 1.65;
+      }
+
+      .intro-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+      }
+
+      .intro-card {
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: 16px;
+        padding: 24px;
+        text-align: left;
+        backdrop-filter: blur(8px);
+        box-shadow: 0 24px 48px rgba(0, 0, 0, 0.4);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        outline: none; /* 用 focus-visible 取代預設 outline */
+      }
+      .intro-card:hover,
+      .intro-card:focus-visible {
+        transform: translateY(-4px);
+        box-shadow: 0 32px 64px rgba(0, 0, 0, 0.5);
+      }
+
+      .intro-card h3 {
+        font-size: 20px;
+        margin: 0 0 12px;
+        color: var(--accent);
+        font-weight: 800;
+      }
+      .intro-card p {
+        font-size: 16px;
+        color: var(--muted);
+        line-height: 1.65;
+      }
+
       @media (prefers-reduced-motion: reduce) {
         .card {
           transform: none;
           opacity: 1 !important;
           transition: none;
         }
+        .stars, .orb {
+          animation: none;
+          filter: none;
+        }
+        .intro-card {
+          transition: none;
+        }
+        .intro-card:hover,
+        .intro-card:focus-visible {
+          transform: none;
+          box-shadow: 0 24px 48px rgba(0, 0, 0, 0.4);
+        }
       }
 
-      @media (max-width: 900px) {
-        .hero {
-          grid-template-columns: 1fr;
+      @media (max-width: 1024px) {
+        .intro-grid {
+          grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
         }
-        .title {
-          padding-left: 12px;
-        }
-        /* ★ 手機端也稍微往右靠 */
-        .container {
-          padding: 32px 20px 32px 44px;
-        }
-        .video-wrap {
-          margin-left: -8px;
-        }
+      }
+      @media (max-width: 768px) {
+        .intro-title::after { height: 4px; }
+        .intro-subtitle { font-size: 16px; }
+        .intro-card h3 { font-size: 18px; }
+        .intro-card p { font-size: 15px; }
       }
     </style>
   </head>
   <body>
-    <div class="stars" aria-hidden="true"></div>
-    <div class="orb" aria-hidden="true"></div>
+    <div class="stars" aria-hidden="true" role="presentation"></div>
+    <div class="orb" aria-hidden="true" role="presentation"></div>
 
     <main class="container">
+      <!-- Hero -->
       <section class="section" aria-labelledby="hero-title">
         <div class="hero">
           <div class="title">
             <h1 id="hero-title"><span class="underline">VermaVibe</span></h1>
-            <h2>Quantum Farming</h2>
+            <h2 lang="en">Quantum Farming</h2>
             <p class="slogan">Create Harvests With Less Input</p>
           </div>
-          <div class="video-wrap" aria-label="介紹影片">
+          <div class="video-wrap" aria-labelledby="hero-title">
             <iframe
               src="https://www.youtube-nocookie.com/embed/vk_kLr14Obg?rel=0&autoplay=1&mute=1&loop=1&playlist=vk_kLr14Obg&playsinline=1"
               title="介紹影片"
+              loading="lazy"
+              referrerpolicy="strict-origin-when-cross-origin"
               allow="autoplay; encrypted-media; picture-in-picture"
               allowfullscreen
-            ></iframe>
-          </div>
-        </div>
-      </section>
-
-      <section id="evolution" class="section" aria-labelledby="evo-title">
-        <h3 id="evo-title">農業進化論</h3>
-        <div class="stack">
-          <article class="card reveal">
+           >
             <span class="badge">核心目標</span>
             <h4>以成果為中心</h4>
             <p>資料驅動、品質兼顧、風險可控，建立可量化的改進路徑。</p>
           </article>
-          <article class="card reveal">
+          <article class="card">
             <span class="badge">適用範圍</span>
             <h4>多樣作物與場域</h4>
             <p>露地、溫室到智慧農場，支援各類栽培模式與產銷協作。</p>
           </article>
-          <article class="card reveal">
+          <article class="card">
             <span class="badge">永續騰諾</span>
             <h4>三重底線</h4>
             <p>環境、經濟、社會價值同步提升，強化韌性。</p>
@@ -315,22 +380,60 @@
         </div>
       </section>
 
+      <!-- Nature Power (全英文 Intro 風格) -->
+      <section id="nature-power" class="intro-section" aria-label="Nature's Force Intro">
+        <div class="intro-container">
+          <!-- Title -->
+          <h2 class="intro-title">Where Nature's Force Becomes Your Strength.</h2>
+          <p class="intro-subtitle">
+            Activate nature's inherent energy to enrich the soil, enabling crops to thrive naturally, reducing pest intrusion, and suppressing pathogens.
+            Minimize pesticide use and create a healthy, safe agricultural environment.
+          </p>
+
+          <!-- Three pillars -->
+          <div class="intro-grid">
+            <article class="intro-card" tabindex="0" aria-labelledby="np-mechanism-title">
+              <h3 id="np-mechanism-title">Mechanism</h3>
+              <p>
+                By leveraging <strong>Scalar Waves</strong> and <strong>Intrinsic Data Fields</strong>,
+                we adjust the target's developmental state, guiding it toward a positive and balanced trajectory.
+              </p>
+            </article>
+
+            <article class="intro-card" tabindex="0" aria-labelledby="np-target-title">
+              <h3 id="np-target-title">Target</h3>
+              <p>
+                Using quantum adjustment technology, we fine-tune the <strong>Information Fields</strong> of soil, water, air, and crops
+                to create optimal growth conditions. This customized approach ensures fertile soil and supports crops in achieving their golden growth state.
+              </p>
+            </article>
+
+            <article class="intro-card" tabindex="0" aria-labelledby="np-effects-title">
+              <h3 id="np-effects-title">Effects</h3>
+              <p>
+                It awakens plant vitality, enriches soil nutrients, repels pests, activates beneficial microorganisms, boosts harvests,
+                reduces pesticide use, and enhances overall crop efficiency.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- Quantum -->
       <section id="quantum" class="section" aria-labelledby="quantum-title">
         <h3 id="quantum-title">量子農法</h3>
         <div class="stack">
-          <article class="card reveal">
+          <article class="card">
             <span class="badge">運作機制</span>
             <h4>參數化與迭代</h4>
-            <p>
-              把水分、養分、光照、溫濕度等轉為可追蹤參數，小步快跑持續優化。
-            </p>
+            <p>把水分、養分、光照、溫濕度等轉為可追蹤參數，小步快跑持續優化。</p>
           </article>
-          <article class="card reveal">
+          <article class="card">
             <span class="badge">作用結果</span>
             <h4>穩定與提升</h4>
             <p>提升產量與一致性，降低病蟲害與波動，縮短調試時間。</p>
           </article>
-          <article class="card reveal">
+          <article class="card">
             <span class="badge">校正目標</span>
             <h4>以指標為中心</h4>
             <p>依品質、成熟度、風味與成本進行自動／半自動修正策略。</p>
@@ -338,43 +441,7 @@
         </div>
       </section>
 
-      
-<section id="nature-force" class="section" aria-labelledby="nature-title">
-  <h3 id="nature-title">Where Nature's Force Becomes Your Strength</h3>
-  <div class="stack">
-    <article class="card reveal">
-      <span class="badge">Overview</span>
-      <h4>Activate Nature's Energy</h4>
-      <p>
-        Activate nature's inherent energy to enrich the soil, enabling crops to thrive naturally, reducing pest intrusion, and suppressing pathogens. Minimize pesticide use and create a healthy, safe agricultural environment.
-      </p>
-    </article>
-    <article class="card reveal">
-      <span class="badge">Mechanism</span>
-      <h4>Scalar Waves & Intrinsic Data Fields</h4>
-      <p>
-        By leveraging Scalar Waves and Intrinsic Data Fields, we adjust the target's developmental state, guiding it toward a positive and balanced trajectory.
-      </p>
-    </article>
-    <article class="card reveal">
-      <span class="badge">Target</span>
-      <h4>Quantum Adjustment Technology</h4>
-      <p>
-        Using quantum adjustment technology, we fine-tune the Information Fields of soil, water, air, and crops to create optimal growth conditions. This customized approach ensures fertile soil and supports crops in achieving their golden growth state.
-      </p>
-    </article>
-    <article class="card reveal">
-      <span class="badge">Effects</span>
-      <h4>Awaken Plant Vitality</h4>
-      <p>
-        It awakens plant vitality, enriches soil nutrients, repels pests, activates beneficial microorganisms, boosts harvests, reduces pesticide use, and enhances overall crop efficiency.
-      </p>
-    </article>
-  </div>
-</section>
-
-
-      <footer>
+      <footer role="contentinfo">
         <small>© 2026 VermaVibe · Quantum Farming</small>
       </footer>
     </main>
@@ -382,7 +449,6 @@
     <script>
       const cards = document.querySelectorAll(".card");
 
-      /* ★ 降低門檻，增加 rootMargin，避免不觸發的情況 */
       const io = new IntersectionObserver(
         (entries) => {
           entries.forEach((e) => {
@@ -391,10 +457,9 @@
         },
         { threshold: 0.06, rootMargin: "0px 0px -10% 0px" }
       );
-
       cards.forEach((c) => io.observe(c));
 
-      /* ★ 載入後保險機制：若 800ms 仍未 reveal，就強制顯示 */
+      // 保險機制：若 800ms 仍未 reveal，就強制顯示
       window.addEventListener("load", () => {
         setTimeout(() => {
           cards.forEach((c) => {
@@ -403,14 +468,6 @@
         }, 800);
       });
     </script>
-    <style>
-      @media (prefers-reduced-motion: reduce) {
-        .card {
-          transform: none;
-          opacity: 1;
-          transition: none;
-        }
-      }
-    </style>
   </body>
 </html>
+``
